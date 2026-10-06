@@ -96,11 +96,11 @@ The voice agent relies on a verified custom tool route for real-time order looku
 * **Tailwind CSS v4**: Offers high-performance utility-first styling with accessible UI primitives, enabling a polished, modern glassmorphic interface with real-time transcript streaming and dynamic order status cards.
 * **Omnidimension `@omnidim-ai/client`**: WebSession enables ultra-low-latency real-time voice communication over WebSockets, giving customers natural, responsive turn-taking during support calls.
 
-### 2. What was the most difficult part of the assignment, and how did you solve it?
+### 2. What was the most difficult part of the assignment, and how did I solve it?
 * **Challenge**: Guaranteeing real-time synchronization between the voice session lifecycle, streaming transcripts, and verified backend order tool calls without exposing API secrets or causing race conditions.
 * **Solution**: Decoupled session initialization from client-side state by creating a secure Next.js Server Action (`createVoiceSession`) that requests an ephemeral WebSocket URL from Omnidimension. In addition, designed a single source of truth order verification module (`src/lib/orders.ts`) shared between the public API route and the post-call summary component to ensure consistent, non-hallucinated data across both the agent and UI.
 
-### 3. If you had one more week to work on this, what would you improve first and why?
+### 3. If I had one more week to work on this, what would I improve first and why?
 * **Database & E-Commerce Integration**: Replace in-memory mock order data with a PostgreSQL database (via Prisma ORM) and connect live webhooks to e-commerce platforms (Shopify/WooCommerce) for real-time inventory checks, live shipping updates, and automated order modifications.
 * **Sentiment Analysis & Human Handoff**: Integrate real-time sentiment scoring during voice streams. If a customer expresses high frustration, the agent would seamlessly transfer the call context and live transcript to a human support queue.
 * **Interactive Audio Visualizer & Call Exports**: Add canvas-rendered waveform visualizers during active speech and exportable transcript summaries via email or PDF for customer records.
