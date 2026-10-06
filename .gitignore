@@ -1,0 +1,30 @@
+# dependencies
+node_modules
+
+# next.js
+.next
+out
+next-env.d.ts
+
+# env
+.env
+.env*.local
+.env.example
+# logs
+logs
+*.log
+npm-debug.log*
+
+# typescript
+*.tsbuildinfo
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
