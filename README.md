@@ -36,7 +36,7 @@ A modern, real-time voice support assistant for **Aura Skincare**, powered by **
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/your-username/aura-skincare.git
+git clone https://github.com/gpreddy817/aura-skincare.git
 cd aura-skincare
 npm install
 ```
