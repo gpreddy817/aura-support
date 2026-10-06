@@ -22,7 +22,7 @@ A modern, real-time voice support assistant for **Aura Skincare**, powered by **
 
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Server Actions, Route Handlers)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + [Radix UI](https://www.radix-ui.com/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) 
 - **Voice Engine**: [Omnidimension AI](https://omnidim.io/) `@omnidim-ai/client`
 - **Deployment**: Hosted on [Vercel](https://vercel.com/)
 
@@ -49,7 +49,7 @@ cp .env.example .env
 Fill in your Omnidimension credentials in `.env`:
 ```env
 OMNIDIM_API_KEY=your_omnidim_api_key
-OMNIDIM_AGENT_ID=261713
+OMNIDIM_AGENT_ID=your_agent_id
 ```
 
 ### 3. Run Development Server
@@ -89,11 +89,11 @@ The voice agent relies on a verified custom tool route for real-time order looku
 
 ---
 
-## 💡 Tell Us How You Think
+## Some whys
 
-### 1. Why did you choose your particular architecture and technology stack?
+### 1. Why did I choose particular architecture and technology stack?
 * **Next.js (App Router) + TypeScript**: Next.js provides full-stack unification with Server Actions and Route Handlers in a single repository. Server Actions (`src/lib/voice.functions.ts`) securely keep the Omnidimension API key server-side, while App Router route handlers (`/api/public/get-order-details`) provide a public HTTP JSON endpoint for the voice agent's custom tool call.
-* **Tailwind CSS v4 + Radix UI**: Offers high-performance utility-first styling with accessible UI primitives, enabling a polished, modern glassmorphic interface with real-time transcript streaming and dynamic order status cards.
+* **Tailwind CSS v4**: Offers high-performance utility-first styling with accessible UI primitives, enabling a polished, modern glassmorphic interface with real-time transcript streaming and dynamic order status cards.
 * **Omnidimension `@omnidim-ai/client`**: WebSession enables ultra-low-latency real-time voice communication over WebSockets, giving customers natural, responsive turn-taking during support calls.
 
 ### 2. What was the most difficult part of the assignment, and how did you solve it?
@@ -105,7 +105,7 @@ The voice agent relies on a verified custom tool route for real-time order looku
 * **Sentiment Analysis & Human Handoff**: Integrate real-time sentiment scoring during voice streams. If a customer expresses high frustration, the agent would seamlessly transfer the call context and live transcript to a human support queue.
 * **Interactive Audio Visualizer & Call Exports**: Add canvas-rendered waveform visualizers during active speech and exportable transcript summaries via email or PDF for customer records.
 
-### 4. Imagine this agent is handling 1,000 customer conversations a day. What do you think would need to change or improve?
+### 4. Imagine this agent is handling 1,000 customer conversations a day. What do I think would need to change or improve?
 * **Infrastructure & Caching**: Implement Redis (Upstash) caching for order details and API responses to prevent database strain during peak call hours.
 * **Rate Limiting & DDoS Protection**: Add token-bucket rate limiting on the `/api/public/get-order-details` and session creation endpoints to protect against abuse and manage concurrent WebSocket connections.
 * **Observability & Analytics**: Integrate OpenTelemetry and analytics logging (e.g. Datadog / PostHog) to track key performance indicators such as audio packet latency, tool call execution speeds, transcript resolution rates, and dropped call metrics.
